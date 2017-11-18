@@ -2,8 +2,8 @@
 
 ## Load Household Power Consumption Data and subset to dates Feb 1st-2nd, 2007
 dataFile <- "C:/Users/maggi/Dropbox/Rademacher/Maggi/University San Diego/Coursera/R Programming/Exploratory Analysis/Data/household_power_consumption.txt"
-data <- read.table(dataFile, header=TRUE, sep=";", stringsAsFactors=FALSE, dec=".")
-DataSample <- data[data$Date %in% c("1/2/2007","2/2/2007") ,]
+data <- read.table(dataFile, header=TRUE, sep=";", stringsAsFactors=FALSE, dec=".",na.strings = "?")
+   DataSample <subset(data, Date == "1/2/2007" | Date == "2/2/2007")
 
 #Create Subsets of Data for Plot
 datetime <- strptime(paste(DataSample$Date, DataSample$Time, sep=" "), "%d/%m/%Y %H:%M:%S") 

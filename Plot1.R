@@ -1,11 +1,11 @@
 
 ## Load Household Power Consumption Data and subset to dates Feb 1st-2nd, 2007
 dataFile <- "C:/Users/maggi/Dropbox/Rademacher/Maggi/University San Diego/Coursera/R Programming/Exploratory Analysis/Data/household_power_consumption.txt"
-	data <- read.table(dataFile, header=TRUE, sep=";", stringsAsFactors=FALSE, dec=".")
+	data <- read.table(dataFile, header=TRUE, sep=";", stringsAsFactors=FALSE, dec=".", na.strings = "?")
 
 ##Create sub sample for dates 1/2 - 2/2/ 2007 from customer data	
-		DataSample <- data[data$Date %in% c("1/2/2007","2/2/2007") ,]
-	
+		DataSample <subset(data, Date == "1/2/2007" | Date == "2/2/2007")
+		
 ##str(subSetData)
 	GlobalActivePower <- as.numeric(DataSample$Global_active_power)
 	
